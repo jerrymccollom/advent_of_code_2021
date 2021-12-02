@@ -49,7 +49,7 @@ func findSumsInWindow(nums []int, window int) []int {
 	for i := start; i < end; i++ {
 		sum := 0
 		for j := 0; j < window; j++ {
-			sum += nums[i + j]
+			sum += nums[i+j]
 		}
 		sums[i] = sum
 	}
