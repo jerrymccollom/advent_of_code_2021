@@ -94,7 +94,7 @@ func addToBasin(b *Basin, m [][]int, x, y int) {
 	}
 }
 
-func fundBasins(m [][]int) []*Basin {
+func findBasins(m [][]int) []*Basin {
 	result := make([]*Basin, 0)
 	for i := 1; i < len(m); i++ {
 		for j := 1; j < len(m[i]); j++ {
@@ -113,7 +113,7 @@ func fundBasins(m [][]int) []*Basin {
 }
 
 func day9part2(data []string) {
-	basins := fundBasins(getMap(data))
+	basins := findBasins(getMap(data))
 	fmt.Printf("%d basins, top 3 are ", len(basins))
 	result := make([]int, len(basins))
 	for i, b := range basins {
