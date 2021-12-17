@@ -59,14 +59,33 @@ func getTargetArea(s string) Area {
 
 const NOTREACHED = -987654
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+func abs(a int) int {
+	if a < 0 {
+		return -a
+	}
+	return a
+}
+
+func getMaxSteps(target Area) int {
+	return max(max(abs(target.minX), abs(target.maxX)),
+		max(abs(target.minY), abs(target.maxY)))
+}
+
 func maxYPosition(target Area, xVol, yVol int, debug bool) int {
 	x, y := 0, 0
 	step := 0
+	maxSteps := getMaxSteps(target)
 	initX, initY := xVol, yVol
 	maxY := 0
 	for {
 		step++
-		if step > 300 {
+		if step > maxSteps {
 			return NOTREACHED
 		}
 		x += xVol
